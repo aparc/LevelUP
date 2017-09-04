@@ -1,6 +1,6 @@
 package Lesson2;
 
-public class Test {
+public class ErythropenyaSieve {
     public static void main(String[] args) {
         int[] array = new int[10001];
 
