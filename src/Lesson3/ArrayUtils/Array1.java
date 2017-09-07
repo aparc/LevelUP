@@ -8,7 +8,7 @@ public class Array1 {
         int[] array = new int[7];
 
         for (int i = 0; i < array.length; i++){
-            array[i] = r.nextInt(6);
+            array[i] = r.nextInt(100);
         }
         for(int i: array){
             System.out.print(i + " ");
