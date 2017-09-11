@@ -1,7 +1,6 @@
 package Lesson4;
 
-import java.nio.CharBuffer;
-import java.util.ArrayList;
+
 
 public class UniqueSymbols {
     public static void main(String[] args) {
