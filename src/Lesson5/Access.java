@@ -1,11 +1,12 @@
 package Lesson5;
-import java.util.Scanner;
-import static Lesson5.UserStorage.user;
+
 
 public class Access {
 
-    String login;
-    String password;
+    private String login;
+    private String password;
+
+    public Access(){}
 
 
     public Access(String login, String password) {
@@ -13,51 +14,20 @@ public class Access {
         this.password = password;
     }
 
-    public static void main(String[] args) {
+    public String getLogin() {
+        return login;
+    }
 
-        String[] var = new String[4];
-        var[0] = "\n1. Показать все мои посты";
-        var[1] = "2. Написать сообщение пользователю";
-        var[2] = "3. Оставить комментарий к посту";
-        var[3] = "4. Выход";
-        Scanner scanner = new Scanner(System.in);
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
-        int console = 0;
-        String loginAccess;
-        String passwordAccess;
+    public String getPassword() {
+        return password;
+    }
 
-        System.out.print("Введите логин: ");
-        loginAccess = scanner.nextLine();
-        System.out.print("Введите пароль: ");
-        passwordAccess = scanner.nextLine();
-        Access access = new Access(loginAccess, passwordAccess);
-
-
-
-        UserStorage us = new UserStorage(); // Можно ли обойтись без создания объекта класса UserStorage, что бы вызвать нон-статик метод authenticate
-       if(us.authenticate(user, access)) {  // из статического метода main? authenticate можно сделать static, но тогда он не будет вызывать equals :(
-           for (; ;) {
-               do {
-                   for (String it : var) {
-                       System.out.println(it);
-                   }
-
-                   System.out.println();
-                   System.out.print("Введите число: ");
-                   if (scanner.hasNextInt()) {
-                       console = scanner.nextInt();
-                       if ((console < 1) | (console > 4)) {
-                           System.out.println("Неправильный ввод данных.");
-                       }
-                   }
-                   else {
-                       System.out.println("Вы ввели не целое число."); scanner.next();
-                   }
-               } while ((console < 1) | (console > 4));
-               if (console == 4) break;
-
-           }
-       }
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -73,8 +43,8 @@ public class Access {
     @Override
     public int hashCode() {
         int result = 23;
-        result = 24 * result + login.hashCode();
-        result = 24 * result + password.hashCode();
+        result = 31 * result + login.hashCode();
+        result = 31 * result + password.hashCode();
         return result;
 
 
