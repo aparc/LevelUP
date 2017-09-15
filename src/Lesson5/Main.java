@@ -18,7 +18,6 @@ public class Main {
 
 
         System.out.print("Введите логин: ");
-
         access.setLogin(scanner.nextLine());
         System.out.print("Введите пароль: ");
         access.setPassword(scanner.nextLine());
