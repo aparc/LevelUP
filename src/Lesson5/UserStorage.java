@@ -18,7 +18,7 @@ public class UserStorage {
 
     }
 
-    public static boolean authenticate(Access access){ // Тут я отошел от описанной в условии задачи сигнатуры метода. Конкретно по условию пока не могу сделать, не получается :)
+    public static boolean authenticate(Access access){
 
 
         for(User i: user) {
