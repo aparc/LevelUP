@@ -48,7 +48,7 @@ public class OneWayList<T> implements CustomList<T> {
         if (index == 0) {
             if (head.next == null) { head = null;}
             head = head.next;
-            System.out.println("Nowa Head is " + head.value);
+            System.out.println("Now Head is " + head.value);
         } else {
             current = head;
             for (int i = 0; i < index - 1; i++) {
