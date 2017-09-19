@@ -6,15 +6,18 @@ public class App {
 
         CustomList<String> list = new OneWayList<>();
 
-        list.add("gshjkg");
-        list.add("fdso");
-        list.add("hfrhrtj");
-        list.add("14e24");
-        list.add("11f1");
+        list.add("Cat");
+        list.add("Dog");
+        list.add("Car");
+        list.add("Boat");
+        list.add("Yota");
 
 
 
-        list.delete(4);
+        list.delete(2);
+//        list.delete(0);
+//        list.delete(0);
+
 
 
 

@@ -6,11 +6,11 @@ public class OneWayList<T> implements CustomList<T> {
     private Element head;
     private Element tail;
     private Element current;
+    private Element buff;
 
 
     private class Element {
         Element next;
-        Element prev;
         T value;
         Element(T value) {
             this.value = value;
@@ -43,17 +43,31 @@ public class OneWayList<T> implements CustomList<T> {
     public void delete(int index) {
 
         if (head == null) {return;}
-        else {current = head;
-            for(int i = 0; i < index; i++){
-                current.prev = current.next;
-                current = current.next;
-            }
-
-            current.prev = current.next;
-           System.out.println(current.value);
-//            System.out.println(current.prev.value);
-            current = null;
+//        else {current = head;
+//            for(int i = 0; i < index; i++){
+//                buff.next = current.next;
+//                current.next = null;
+//                current = buff.next;
+//            }
+//
+//            buff.next = current.next;
+//            buff = buff.next;
+//           System.out.println("delete element by index: " + current.value);
+//           System.out.println("now the item under this index is " + buff.value);
+//            current = null;
+//            if(index == 0) {
+//                head = head.next;
+//            }
+//        }
+        current = head;
+        for(int i = 0; i < index; i++){
+            buff = current.next;
+            current.next = current.next.next;
         }
 
+        current = current.next;
+        System.out.println(buff.value);
+        System.out.println(current.value);
     }
+
 }
