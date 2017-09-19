@@ -1,4 +1,4 @@
-package Lesson6;
+package Lesson6.structure;
 
 public class App {
 
@@ -13,10 +13,8 @@ public class App {
         list.add("Yota");
 
 
+        list.delete(0);
 
-        list.delete(2);
-//        list.delete(0);
-//        list.delete(0);
 
 
 

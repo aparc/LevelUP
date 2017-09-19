@@ -1,4 +1,4 @@
-package Lesson6;
+package Lesson6.structure;
 
 public class OneWayList<T> implements CustomList<T> {
 
@@ -43,31 +43,30 @@ public class OneWayList<T> implements CustomList<T> {
     public void delete(int index) {
 
         if (head == null) {return;}
-//        else {current = head;
-//            for(int i = 0; i < index; i++){
-//                buff.next = current.next;
-//                current.next = null;
-//                current = buff.next;
-//            }
-//
-//            buff.next = current.next;
-//            buff = buff.next;
-//           System.out.println("delete element by index: " + current.value);
-//           System.out.println("now the item under this index is " + buff.value);
-//            current = null;
-//            if(index == 0) {
-//                head = head.next;
-//            }
-//        }
-        current = head;
-        for(int i = 0; i < index; i++){
-            buff = current.next;
-            current.next = current.next.next;
+
+
+        if (index == 0) {
+            if (head.next == null) { head = null;}
+            head = head.next;
+            System.out.println("Nowa Head is " + head.value);
+        } else {
+            current = head;
+            for (int i = 0; i < index - 1; i++) {
+                current = current.next;
+
+            }
+            System.out.println("В этот элемент запишем ссылку на элемент через одного: " + current.value);
+            if (current.next.next == null) {
+                current.next = null;
+            } else {
+                current.next = current.next.next;
+                System.out.println("Данный элемент записан: " + current.next.value);
+            }
         }
 
-        current = current.next;
-        System.out.println(buff.value);
-        System.out.println(current.value);
+//        System.out.println(current.next.value);
+
+
     }
 
 }

@@ -1,4 +1,4 @@
-package Lesson6;
+package Lesson6.structure;
 
 import java.util.Calendar;
 import java.util.Date;
