@@ -1,9 +1,12 @@
 package Lesson6.Stack;
 
+import java.util.EmptyStackException;
+
 public class OneWayStack<T> implements CustomStack<T>{
 
     private StackElement head;
     private StackElement bottom;
+    private StackElement top;
 
 
     public class StackElement{
@@ -32,32 +35,28 @@ public class OneWayStack<T> implements CustomStack<T>{
     }
 
     @Override
-    public void pop() {
-        if(bottom == null){return;}
-
-        System.out.println("delete stack: " + head.value);
-
-        StackElement current = bottom;
-        for(;;){
-
-            if(current.next == null){
-                current = null;
-                head = null;
-                bottom = null;
-                break;
+    public T pop() {
+        if(bottom == null){
+            throw new EmptyStackException();
             }
-            else if(current.next == head){
-            current.next = null;
+
+        top = head;
+
+
+        if (bottom == head){
+            bottom = null;
+            return  head.value;
+        }
+
+        else {
+            StackElement current = bottom;
+            while (current.next != head) {
+                current = current.next;
+            }
             head = current;
-            break;
-            }
-            else {current = current.next;}
+            return top.value;
         }
-
-        if(head == null){
-            System.out.println("Stack is Empty.");
-        }
-        else {System.out.println("now head is " + head.value);}
 
     }
+
 }

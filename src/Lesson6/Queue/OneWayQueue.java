@@ -1,5 +1,7 @@
 package Lesson6.Queue;
 
+
+
 public class OneWayQueue<T> implements CustomQueue<T>{
 
     Element head;
@@ -29,20 +31,23 @@ public class OneWayQueue<T> implements CustomQueue<T>{
         }
     }
     @Override
-    public void dequeue() {
+    public T dequeue() throws EmptyQueueException {
 
-        if (head == null) {return;}
+        if (head == null) {
+
+            throw new EmptyQueueException();
+        }
 
         if(head.next == null){
-            head = null;
-            System.out.println("Queue is empty.");
-        }
-        else{
-            System.out.println("head is " + head.value);
             current = head;
             head = null;
-            head = current.next;
-            System.out.println("now head is " + head.value);
+            return current.value;
+
+        }
+        else{
+            current = head;
+            head = head.next;
+            return current.value;
         }
 
 

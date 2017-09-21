@@ -10,10 +10,13 @@ public class App {
         stack.push("Bat");
         stack.push("Bird");
 
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.pop();
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+
+
 
 
 

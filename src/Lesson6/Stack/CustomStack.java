@@ -4,5 +4,5 @@ public interface CustomStack<T> {
 
     void push(T value);
 
-    void pop();
+    T pop();
 }

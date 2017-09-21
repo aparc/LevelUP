@@ -11,10 +11,18 @@ public class App {
         queue.enqueue("Bat");
         queue.enqueue("Bird");
 
-        queue.dequeue();
-//        queue.dequeue();
-//        queue.dequeue();
-//        queue.dequeue();
+        try{
+
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue());
+            System.out.println(queue.dequeue());
+        } catch (EmptyQueueException e){
+
+            System.out.println(e);
+        }
+
 
 
 
