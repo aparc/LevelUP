@@ -2,7 +2,7 @@ package Lesson6.Stack;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         CustomStack<String> stack = new OneWayStack<>();
 
         stack.push("Cat");
