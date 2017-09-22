@@ -26,8 +26,12 @@ public class OneWayStack<T> implements CustomStack<T>{
         if(head == null) {
             head = el;
             bottom = el;
+//             head = el;
         }
         else {
+//             el.next = head;
+//             head = el;
+            
             head.next = el;
             head = el;
         }
@@ -49,6 +53,10 @@ public class OneWayStack<T> implements CustomStack<T>{
         }
 
         else {
+            
+//             T value = head.value;
+//             head = head.next;
+//             return value;
             StackElement current = bottom;
             while (current.next != head) {
                 current = current.next;
@@ -56,6 +64,7 @@ public class OneWayStack<T> implements CustomStack<T>{
             head = current;
             return top.value;
         }
+               
 
     }
 
