@@ -6,7 +6,7 @@ public class OneWayQueue<T> implements CustomQueue<T>{
 
     Element head;
     Element tail;
-    Element current;
+
 
     public class Element{
 
