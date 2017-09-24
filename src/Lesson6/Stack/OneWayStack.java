@@ -5,8 +5,7 @@ import java.util.EmptyStackException;
 public class OneWayStack<T> implements CustomStack<T>{
 
     private StackElement head;
-    private StackElement bottom;
-    private StackElement top;
+
 
 
     public class StackElement{
@@ -25,10 +24,10 @@ public class OneWayStack<T> implements CustomStack<T>{
         StackElement el = new StackElement(value);
         if(head == null) {
             head = el;
-            bottom = el;
+
         }
         else {
-            head.next = el;
+            el.next = head;
             head = el;
         }
 
@@ -36,27 +35,19 @@ public class OneWayStack<T> implements CustomStack<T>{
 
     @Override
     public T pop() {
-        if(bottom == null){
+        if(head == null){
             throw new EmptyStackException();
             }
 
-        top = head;
-
-
-        if (bottom == head){
-            bottom = null;
-            return  head.value;
-        }
 
         else {
-            StackElement current = bottom;
-            while (current.next != head) {
-                current = current.next;
-            }
-            head = current;
-            return top.value;
+            T value = head.value;
+            head = head.next;
+            return value;
+        }
+
         }
 
     }
 
-}
+
