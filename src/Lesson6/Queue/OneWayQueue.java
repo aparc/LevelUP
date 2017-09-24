@@ -37,17 +37,10 @@ public class OneWayQueue<T> implements CustomQueue<T>{
 
             throw new EmptyQueueException();
         }
-
-        if(head.next == null){
-            current = head;
-            head = null;
-            return current.value;
-
-        }
         else{
-            current = head;
+            T value = head.value;
             head = head.next;
-            return current.value;
+            return value;
         }
 
 
