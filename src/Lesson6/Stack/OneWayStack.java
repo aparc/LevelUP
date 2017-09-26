@@ -9,8 +9,8 @@ public class OneWayStack<T> implements CustomStack<T>{
 
 
     public class StackElement{
-    StackElement next;
-    T value;
+        StackElement next;
+        T value;
 
         StackElement(T value) {
             this.value = value;
@@ -37,7 +37,7 @@ public class OneWayStack<T> implements CustomStack<T>{
     public T pop() {
         if(head == null){
             throw new EmptyStackException();
-            }
+        }
 
 
         else {
@@ -46,8 +46,6 @@ public class OneWayStack<T> implements CustomStack<T>{
             return value;
         }
 
-        }
-
     }
 
-
+}
