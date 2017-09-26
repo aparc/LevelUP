@@ -22,6 +22,8 @@ public class HomeWork1 {
         double c = scanner.nextDouble();
 
         double dis = b * b - 4 * a * c;
+        dis = Math.round(dis * 100.0) / 100.0;
+        System.out.println(dis);
         System.out.printf(Locale.US, "Дискриминант равен: %.2f%n", dis);
 
         if (dis > 0)

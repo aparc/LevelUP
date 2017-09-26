@@ -11,7 +11,6 @@ public class HomeWork4 {
             for (int j = 2; j * j <= array[i]; j++) {
                 if (array[i] % j == 0) {
                     array[i] = 0;
-                    break;
                 }
             }
         }
