@@ -1,9 +1,8 @@
 package Lesson8;
 
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,13 +35,11 @@ public class Main {
     {
         int zero = 0;
         Map<Integer, Integer> map = new HashMap<>();
-        int key2 = 0;
-        int value2 = 0;
-        int count = 0;
+        final int[] key2 = {0};
+        final int[] value2 = {0};
+        final int[] count = {0};
 
-        for(int i = 0; i < array.length; i++){ // запихали в HashMap
-            map.put(array[i], zero);
-        }
+        IntStream.range(0, array.length).forEach(i -> map.put(array[i], zero)); // запихали в HashMap
 
         for(int i = 0; i < array.length; i++){  // определяем количество повторений каждого элемента
             for(Integer key: map.keySet()){
@@ -52,19 +49,15 @@ public class Main {
             }
         }
 
-        for(Integer key: map.keySet()){     // находим элемент, который чаще всего повторяется
-            if(map.get(key) > value2) {value2 = map.get(key);
-                key2 = key;}
-        }
+        map.keySet().stream().filter(key -> map.get(key) > value2[0]).forEach(key -> {  // находим элемент, который чаще всего повторяется
+            value2[0] = map.get(key); // с этого момента IDEA заставила меня изменить тип переменных с int на final int[]. Зачем? я так и не понял.
+            key2[0] = key;            //
+        });
 
-        for(Integer key: map.keySet()){   // есть ли элемент с таким же количеством повторений
-            if (map.get(key) == value2){count++;}
-        }
-
-        if (count > 1){
+        map.keySet().stream().filter(key -> map.get(key) == value2[0]).forEach(key -> count[0]++);
+        if (count[0] > 1){
             return;
-        } else {
-            System.out.println("Элемент " + key2 + " повторяется " + value2 + " раз(а).");}
-    }
+        } else System.out.println("Элемент " + key2[0] + " повторяется " + value2[0] + " раз(а).");
 
+    }
 }
