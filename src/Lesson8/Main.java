@@ -10,16 +10,16 @@ public class Main {
         Random r = new Random();
         int min = - 100;
         int max = 100;
-        int [] array = new int[20];
+        int [] array = new int[10];
         String s = "";
 
         for(int i = 0; i < array.length; i++){
             array[i] = r.nextInt(max - min + 1) + min;
         }
 
-        for (int x: array){
-            System.out.println(x);
-        }
+//        for (int x: array){
+//            System.out.println(x);
+//        }
 
         for(int i = 0; i < array.length; i++){
             s += array[i] + " ";
@@ -51,7 +51,7 @@ public class Main {
 
         map.keySet().stream().filter(key -> map.get(key) > value2[0]).forEach(key -> {  // находим элемент, который чаще всего повторяется
             value2[0] = map.get(key); // с этого момента IDEA заставила меня изменить тип переменных с int на final int[]. Зачем? я так и не понял.
-            key2[0] = key;            //
+            key2[0] = key;
         });
 
         map.keySet().stream().filter(key -> map.get(key) == value2[0]).forEach(key -> count[0]++);
